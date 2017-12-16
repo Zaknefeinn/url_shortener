@@ -5,8 +5,8 @@ var regURL = '';
 var shortURL = '';
 var ranNum;
 var checker = '';
-MongoClient.connect('mongodb://Zaknefeinn:1234asdf@ds229415.mlab.com:29415/url_shortener');
 
+MongoClient.connect(process.env.DATABASEURL);
 
 app.use('/new', function(req, res, next) { 
      ranNum = getRandomIntInclusive(1000,9999);
