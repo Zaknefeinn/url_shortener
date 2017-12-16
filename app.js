@@ -8,6 +8,7 @@ var checker = '';
 
 MongoClient.connect(process.env.DATABASEURL);
 
+app.set('view engine', 'ejs');
 app.use('/new', function(req, res, next) { 
      ranNum = getRandomIntInclusive(1000,9999);
      regURL = req.path.substr(1);
@@ -16,7 +17,7 @@ app.use('/new', function(req, res, next) {
 });
 
 app.get('/', function(req, res){
-    res.send('normal page');
+    res.render('index');
 });
 
 app.get('/new/*', function(req,res){
